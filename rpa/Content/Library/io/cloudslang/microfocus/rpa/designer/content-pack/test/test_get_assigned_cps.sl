@@ -9,10 +9,10 @@ flow:
           io.cloudslang.microfocus.rpa.designer.authenticate.get_token: []
         navigate:
           - FAILURE: on_failure
-          - SUCCESS: get_default_ws_id
-    - get_default_ws_id:
+          - SUCCESS: get_ws_id
+    - get_ws_id:
         do:
-          io.cloudslang.microfocus.rpa.designer.workspace.get_default_ws_id: []
+          io.cloudslang.microfocus.rpa.designer.workspace.get_ws_id: []
         publish:
           - ws_id
         navigate:
@@ -44,7 +44,7 @@ extensions:
       get_assigned_cp_id:
         x: 413
         'y': 109
-      get_default_ws_id:
+      get_ws_id:
         x: 251
         'y': 96
       get_token:

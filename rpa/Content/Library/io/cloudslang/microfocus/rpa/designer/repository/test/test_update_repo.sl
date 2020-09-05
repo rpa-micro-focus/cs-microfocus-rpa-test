@@ -24,10 +24,10 @@ flow:
           - token
         navigate:
           - FAILURE: on_failure
-          - SUCCESS: get_default_ws_id
-    - get_default_ws_id:
+          - SUCCESS: get_ws_id
+    - get_ws_id:
         do:
-          io.cloudslang.microfocus.rpa.designer.workspace.get_default_ws_id: []
+          io.cloudslang.microfocus.rpa.designer.workspace.get_ws_id: []
         publish:
           - ws_id
         navigate:
@@ -81,7 +81,7 @@ extensions:
       get_token:
         x: 550
         'y': 239
-      get_default_ws_id:
+      get_ws_id:
         x: 549
         'y': 430
       get_first_repo_id:

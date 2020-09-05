@@ -17,7 +17,7 @@ flow:
           - token
         navigate:
           - FAILURE: on_failure
-          - SUCCESS: get_default_ws_id
+          - SUCCESS: get_ws_id
     - import_repo:
         do:
           io.cloudslang.microfocus.rpa.designer.repository.import_repo:
@@ -30,9 +30,9 @@ flow:
         navigate:
           - FAILURE: on_failure
           - SUCCESS: get_repo_details
-    - get_default_ws_id:
+    - get_ws_id:
         do:
-          io.cloudslang.microfocus.rpa.designer.workspace.get_default_ws_id: []
+          io.cloudslang.microfocus.rpa.designer.workspace.get_ws_id: []
         publish:
           - ws_id
         navigate:
@@ -76,7 +76,7 @@ extensions:
       import_repo:
         x: 432
         'y': 112
-      get_default_ws_id:
+      get_ws_id:
         x: 255
         'y': 107
       string_equals:

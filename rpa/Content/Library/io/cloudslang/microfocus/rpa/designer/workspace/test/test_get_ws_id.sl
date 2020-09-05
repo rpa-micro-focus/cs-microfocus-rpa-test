@@ -1,16 +1,16 @@
 namespace: io.cloudslang.microfocus.rpa.designer.workspace.test
 flow:
-  name: test_get_default_ws_id
+  name: test_get_ws_id
   workflow:
     - get_token:
         do:
           io.cloudslang.microfocus.rpa.designer.authenticate.get_token: []
         navigate:
           - FAILURE: on_failure
-          - SUCCESS: get_default_ws_id
-    - get_default_ws_id:
+          - SUCCESS: get_ws_id
+    - get_ws_id:
         do:
-          io.cloudslang.microfocus.rpa.designer.workspace.get_default_ws_id: []
+          io.cloudslang.microfocus.rpa.designer.workspace.get_ws_id: []
         publish:
           - ws_id
         navigate:
@@ -22,7 +22,7 @@ flow:
 extensions:
   graph:
     steps:
-      get_default_ws_id:
+      get_ws_id:
         x: 267
         'y': 69
         navigate:
