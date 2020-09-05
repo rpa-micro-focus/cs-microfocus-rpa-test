@@ -87,7 +87,7 @@ flow:
         do:
           io.cloudslang.microfocus.rpa.idm.user.get_users:
             - token: '${token}'
-            - searchText: '${username}'
+            - search_text: '${username}'
             - org_id: '${org_id}'
         publish:
           - users_json
