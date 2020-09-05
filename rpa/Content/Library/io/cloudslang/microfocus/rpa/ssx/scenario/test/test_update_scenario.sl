@@ -2,7 +2,7 @@ namespace: io.cloudslang.microfocus.rpa.ssx.scenario.test
 flow:
   name: test_update_scenario
   inputs:
-    - scenario_json: '{"categoryId":%s,"name":"PURCHASE AN ITEM","description":"Shops for an item. Updated.","inputs":[{"label":"url","originalName":"url","type":"STRING","required":false,"exposed":true,"hasDefaultValue":true,"defaultValue":"http://rpa.mf-te.com:8080","sources":null,"separator":null},{"label":"username","originalName":"username","type":"STRING","required":true,"exposed":true,"hasDefaultValue":false,"defaultValue":null,"sources":null,"separator":null},{"label":"password","originalName":"password","type":"CREDENTIAL","required":true,"exposed":true,"hasDefaultValue":false,"defaultValue":null,"sources":null,"separator":null},{"label":"catalog","originalName":"catalog","type":"STRING","required":true,"exposed":true,"hasDefaultValue":false,"defaultValue":null,"sources":null,"separator":null},{"label":"item","originalName":"item","type":"STRING","required":true,"exposed":true,"hasDefaultValue":false,"defaultValue":null,"sources":null,"separator":null}],"outputs":[{"label":"price","originalName":"price","exposed":true}],"roles":["ADMINISTRATOR","PROMOTER"],"flowVo":{"flowUuid":"AOS.product.purchase.ui.buy_item","persistenceLevel":"STANDARD","timeoutValue":0,"flowPath":"Library/AOS/product/purchase/ui/buy_item.sl"}}'
+    - scenario_json: '{"name":"PURCHASE AN ITEM","description":"Shops for an item. Updated.","inputs":[{"label":"url","originalName":"url","type":"STRING","required":false,"exposed":true,"hasDefaultValue":true,"defaultValue":"http://rpa.mf-te.com:8080","sources":null,"separator":null},{"label":"username","originalName":"username","type":"STRING","required":true,"exposed":true,"hasDefaultValue":false,"defaultValue":null,"sources":null,"separator":null},{"label":"password","originalName":"password","type":"CREDENTIAL","required":true,"exposed":true,"hasDefaultValue":false,"defaultValue":null,"sources":null,"separator":null},{"label":"catalog","originalName":"catalog","type":"STRING","required":true,"exposed":true,"hasDefaultValue":false,"defaultValue":null,"sources":null,"separator":null},{"label":"item","originalName":"item","type":"STRING","required":true,"exposed":true,"hasDefaultValue":false,"defaultValue":null,"sources":null,"separator":null}],"outputs":[{"label":"price","originalName":"price","exposed":true}],"roles":["ADMINISTRATOR","PROMOTER"],"flowVo":{"flowUuid":"AOS.product.purchase.ui.buy_item","persistenceLevel":"STANDARD","timeoutValue":0,"flowPath":"Library/AOS/product/purchase/ui/buy_item.sl"}}'
   workflow:
     - get_token:
         do:
@@ -34,7 +34,7 @@ flow:
     - get_scenario_name:
         do:
           io.cloudslang.base.json.json_path_query:
-            - json_object: "${scenario_json % '\"\"'}"
+            - json_object: '${scenario_json}'
             - json_path: $.name
         publish:
           - scenario_name: '${return_result[1:-1]}'
@@ -67,6 +67,9 @@ flow:
 extensions:
   graph:
     steps:
+      get_token:
+        x: 155
+        'y': 19
       update_scenario:
         x: 556
         'y': 31
@@ -74,9 +77,6 @@ extensions:
           4ed2d6f3-0df9-6163-b102-1c840d5c0bd7:
             targetId: 42102214-c351-753a-5c4b-bfb17e0c4a55
             port: SUCCESS
-      get_token:
-        x: 155
-        'y': 19
       get_scenarios:
         x: 212
         'y': 187
