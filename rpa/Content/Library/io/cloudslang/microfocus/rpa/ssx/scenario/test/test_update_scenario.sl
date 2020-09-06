@@ -16,7 +16,7 @@ flow:
         do:
           io.cloudslang.microfocus.rpa.ssx.scenario.update_scenario:
             - token: '${token}'
-            - id: '${scenario_id}'
+            - scenario_id: '${scenario_id}'
             - category_id: '${category_id}'
             - scenario_json: '${scenario_json}'
         navigate:

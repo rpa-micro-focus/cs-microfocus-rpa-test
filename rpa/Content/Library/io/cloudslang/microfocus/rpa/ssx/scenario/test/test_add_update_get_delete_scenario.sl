@@ -22,7 +22,7 @@ flow:
             - category_id: '${category_id}'
             - scenario_json: '${scenario_json}'
         publish:
-          - scenario_id: '${id}'
+          - scenario_id
         navigate:
           - FAILURE: on_failure
           - SUCCESS: add_scenario_again
@@ -50,7 +50,7 @@ flow:
         do:
           io.cloudslang.microfocus.rpa.ssx.scenario.update_scenario:
             - token: '${token}'
-            - id: '${scenario_id}'
+            - scenario_id: '${scenario_id}'
             - category_id: '${category_id}'
             - scenario_json: "${scenario_json.replace('CREATE USERS FROM EXCEL4', scenario_new_name)}"
         navigate:
@@ -60,7 +60,7 @@ flow:
         do:
           io.cloudslang.microfocus.rpa.ssx.scenario.get_scenario:
             - token: '${token}'
-            - name: '${scenario_new_name}'
+            - scenario_name: '${scenario_new_name}'
         publish:
           - scenario_json
           - new_scenario_id: "${str(eval(scenario_json.replace(':null',':None')).get('id'))}"
@@ -79,7 +79,7 @@ flow:
         do:
           io.cloudslang.microfocus.rpa.ssx.scenario.delete_scenario:
             - token: '${token}'
-            - id: '${scenario_id}'
+            - scenario_id: '${scenario_id}'
         navigate:
           - FAILURE: on_failure
           - SUCCESS: SUCCESS
@@ -87,7 +87,7 @@ flow:
         do:
           io.cloudslang.microfocus.rpa.ssx.scenario.get_scenario:
             - token: '${token}'
-            - name: '${scenario_old_name}'
+            - scenario_name: '${scenario_old_name}'
         publish:
           - scenario_json
         navigate:
@@ -149,11 +149,11 @@ extensions:
         x: 423
         'y': 394
     results:
-      SUCCESS:
-        d1230ac0-3a26-69c9-524a-5a9ef32db2a5:
-          x: 207
-          'y': 237
       FAILURE:
         ccaa87ce-2c5b-4e5c-9614-bb5ecb4ac420:
           x: 482
           'y': 243
+      SUCCESS:
+        d1230ac0-3a26-69c9-524a-5a9ef32db2a5:
+          x: 207
+          'y': 237

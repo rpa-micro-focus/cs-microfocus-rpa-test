@@ -24,7 +24,7 @@ flow:
                   }
                 '''}
         publish:
-          - id
+          - category_id
         navigate:
           - FAILURE: on_failure
           - SUCCESS: update_category
@@ -32,7 +32,7 @@ flow:
         do:
           io.cloudslang.microfocus.rpa.ssx.category.update_category:
             - token: '${token}'
-            - id: '${id}'
+            - category_id: '${category_id}'
             - category_json: |-
                 ${'''
                   {
@@ -77,7 +77,7 @@ flow:
         do:
           io.cloudslang.microfocus.rpa.ssx.category.delete_category:
             - token: '${token}'
-            - id: '${id}'
+            - category_id: '${category_id}'
         navigate:
           - FAILURE: on_failure
           - SUCCESS: get_category_by_id
@@ -85,7 +85,7 @@ flow:
         do:
           io.cloudslang.microfocus.rpa.ssx.category.get_category_by_id:
             - token: '${token}'
-            - id: '${id}'
+            - category_id: '${category_id}'
         navigate:
           - FAILURE: SUCCESS
           - SUCCESS: FAILURE
