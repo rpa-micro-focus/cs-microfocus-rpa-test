@@ -15,7 +15,7 @@ flow:
     - download_cps:
         do:
           io.cloudslang.microfocus.rpa.central.content-pack.download_cps:
-            - cp_folder: '${folder_path}'
+            - cps_folder: '${folder_path}'
         publish:
           - failed_cps
         navigate:
@@ -27,6 +27,9 @@ flow:
 extensions:
   graph:
     steps:
+      get_temp_file:
+        x: 76
+        'y': 82
       download_cps:
         x: 264
         'y': 73
@@ -34,9 +37,6 @@ extensions:
           3c7df7d5-e5f3-7da8-be5c-f6d9ec7b257b:
             targetId: d2c6202e-6b3e-1b5f-f1a0-1be53b1c01c8
             port: SUCCESS
-      get_temp_file:
-        x: 76
-        'y': 82
     results:
       SUCCESS:
         d2c6202e-6b3e-1b5f-f1a0-1be53b1c01c8:
