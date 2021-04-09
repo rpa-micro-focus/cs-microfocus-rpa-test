@@ -6,7 +6,7 @@ flow:
   workflow:
     - get_temp_file:
         do:
-          io.cloudslang.base.filesystem.temp.get_temp_file:
+          io.cloudslang.microfocus.base.filesystem.temp.get_temp_file:
             - file_name: test
         publish:
           - folder_path
